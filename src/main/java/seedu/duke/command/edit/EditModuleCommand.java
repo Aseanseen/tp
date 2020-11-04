@@ -54,7 +54,7 @@ public class EditModuleCommand extends EditCommand {
     public CommandResult execute() {
         try {
             ModuleManager.edit(newModuleCode, oldModuleCode);
-            return new CommandResult(MESSAGE_EDIT_MODULE_SUCCESS);
+            return new CommandResult(String.format(MESSAGE_EDIT_MODULE_SUCCESS, oldModuleCode, newModuleCode));
         } catch (ModuleNotProvidedException e) {
             return new CommandResult(MESSAGE_MODULE_NOT_PROVIDED);
         } catch (DuplicateModuleException e) {

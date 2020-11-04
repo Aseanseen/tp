@@ -37,11 +37,13 @@ public class TaskManager {
      * @throws TaskNotFoundException
      *  If there is no task found with that ID
      */
-    public static void edit(int taskId, String editedTaskDesc) throws TaskNotFoundException {
+    public static Task edit(int taskId, String editedTaskDesc) throws TaskNotFoundException {
         if (taskId < 0 || taskId > tasksList.size() - 1) {
             throw new TaskNotFoundException();
         }
-        tasksList.get(taskId).setName(editedTaskDesc);
+        Task task = tasksList.get(taskId);
+        task.setName(editedTaskDesc);
+        return task;
     }
 
     /**
@@ -56,12 +58,14 @@ public class TaskManager {
      * @throws TaskNotFoundException
      *  If there is no task found with that ID
      */
-    public static void edit(int taskId, String editedTaskDesc, LocalDateTime deadline) throws TaskNotFoundException {
+    public static Task edit(int taskId, String editedTaskDesc, LocalDateTime deadline) throws TaskNotFoundException {
         if (taskId < 0 || taskId > tasksList.size() - 1) {
             throw new TaskNotFoundException();
         }
-        tasksList.get(taskId).setName(editedTaskDesc);
-        tasksList.get(taskId).setDeadline(deadline);
+        Task task = tasksList.get(taskId);
+        task.setName(editedTaskDesc);
+        task.setDeadline(deadline);
+        return task;
     }
 
     /**
@@ -80,11 +84,11 @@ public class TaskManager {
      * @throws TaskNotFoundException
      *  When the task to be removed is not in the task list
      */
-    public static void delete(int taskId) throws TaskNotFoundException {
+    public static Task delete(int taskId) throws TaskNotFoundException {
         if (taskId < 0 || taskId > tasksList.size() - 1) {
             throw new TaskNotFoundException();
         }
-        tasksList.remove(taskId);
+        return tasksList.remove(taskId);
     }
 
     public static Task done(int taskId) throws TaskNotFoundException {

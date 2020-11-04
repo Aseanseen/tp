@@ -14,11 +14,15 @@ public class Message {
     public static final String MESSAGE_ADD_LESSON_SUCCESS = "Your lesson has been added successfully.\n"
             + "Your new lesson - '%s'\n";
 
-    public static final String MESSAGE_DELETE_TASK_SUCCESS = "Your task has been deleted successfully.\n";
-    public static final String MESSAGE_DELETE_MODULE_SUCCESS = "Your module has been deleted successfully.\n";
-    public static final String MESSAGE_DELETE_LESSON_SUCCESS = "Your lesson has been deleted successfully.\n";
+    public static final String MESSAGE_DELETE_TASK_SUCCESS = "Your task has been deleted successfully.\n"
+            + "Your deleted task - '%s'\n";
+    public static final String MESSAGE_DELETE_MODULE_SUCCESS = "Your module has been deleted successfully.\n"
+            + "Your deleted module - '%s'\n";
+    public static final String MESSAGE_DELETE_LESSON_SUCCESS = "Your lesson has been deleted successfully.\n"
+            + "Your deleted lesson - '%s'\n";
 
-    public static final String MESSAGE_EDIT_TASK_SUCCESS = "Your task has been edited successfully.\n";
+    public static final String MESSAGE_EDIT_TASK_SUCCESS = "Your task has been edited successfully.\n"
+            + "Your task has been changed from\n'%s'\nto\n'%s'\n";
     public static final String MESSAGE_EDIT_MODULE_SUCCESS = "Your module has been edited successfully.\n";
 
     public static final String MESSAGE_EMPTY_INPUT = "Please enter a command for me.\n";

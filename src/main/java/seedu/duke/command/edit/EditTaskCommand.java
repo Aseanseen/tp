@@ -2,6 +2,7 @@ package seedu.duke.command.edit;
 
 import seedu.duke.command.CommandResult;
 import seedu.duke.command.PromptType;
+import seedu.duke.data.Task;
 import seedu.duke.data.TaskManager;
 import seedu.duke.util.ExceptionMessage;
 
@@ -70,19 +71,20 @@ public class EditTaskCommand extends EditCommand {
         return dateTimeOfDeadline;
     }
 
-    protected void edit() throws TaskManager.TaskNotFoundException {
+    protected Task edit() throws TaskManager.TaskNotFoundException {
         if (dateTimeOfDeadline == null) {
-            TaskManager.edit(taskId, newTaskDescription);
+            return TaskManager.edit(taskId, newTaskDescription);
         } else {
-            TaskManager.edit(taskId, newTaskDescription, dateTimeOfDeadline);
+            return TaskManager.edit(taskId, newTaskDescription, dateTimeOfDeadline);
         }
     }
 
     @Override
     public CommandResult execute() {
         try {
-            edit();
-            return new CommandResult(MESSAGE_EDIT_TASK_SUCCESS);
+            String oldTask = TaskManager.getTask(taskId).toString();
+            String editedTask = edit().toString();
+            return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, oldTask , editedTask));
         } catch (TaskManager.TaskNotFoundException e) {
             return new CommandResult(ExceptionMessage.MESSAGE_NO_EDIT_TASK);
         }

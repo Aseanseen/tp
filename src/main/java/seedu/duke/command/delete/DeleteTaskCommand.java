@@ -2,6 +2,7 @@ package seedu.duke.command.delete;
 
 import seedu.duke.command.CommandResult;
 import seedu.duke.command.PromptType;
+import seedu.duke.data.Task;
 import seedu.duke.data.TaskManager;
 
 import static seedu.duke.util.ExceptionMessage.MESSAGE_TASK_NOT_FOUND;
@@ -30,8 +31,8 @@ public class DeleteTaskCommand extends DeleteCommand {
      * @param taskId ID of the task to be deleted.
      * @throws TaskManager.TaskNotFoundException If the task is not found in the task list.
      */
-    private void deleteTask(int taskId) throws TaskManager.TaskNotFoundException {
-        TaskManager.delete(taskId);
+    private Task deleteTask(int taskId) throws TaskManager.TaskNotFoundException {
+        return TaskManager.delete(taskId);
     }
 
     /**
@@ -43,8 +44,8 @@ public class DeleteTaskCommand extends DeleteCommand {
     public CommandResult execute() {
         String message;
         try {
-            deleteTask(taskId);
-            message = MESSAGE_DELETE_TASK_SUCCESS;
+            Task taskToDelete = deleteTask(taskId);
+            message = String.format(MESSAGE_DELETE_TASK_SUCCESS, taskToDelete.toString());
         } catch (TaskManager.TaskNotFoundException e) {
             message = MESSAGE_TASK_NOT_FOUND;
         }
