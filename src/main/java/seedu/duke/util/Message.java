@@ -28,7 +28,8 @@ public class Message {
             "Please check to make sure to follow the command format:\n";
     public static final String MESSAGE_GOODBYE = "Goodbye, hope to see you soon!";
     public static final String MESSAGE_WELCOME = "\u26A1 Welcome to ra.VI v2.0 \u26A1";
-    public static final String MESSAGE_DONE_TASK_SUCCESS = "The task has been successfully marked as complete.\n";
+    public static final String MESSAGE_DONE_TASK_SUCCESS = "The task has been successfully marked as complete.\n"
+            + "Your task - '%s'\n";
     public static final String ICON_DONE = "\u221A";
     public static final String ICON_NOT_DONE = "\u0078";
     public static final String MESSAGE_LIST_PRINTED = "Here's your list:\n";

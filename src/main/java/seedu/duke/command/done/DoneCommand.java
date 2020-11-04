@@ -3,6 +3,7 @@ package seedu.duke.command.done;
 import seedu.duke.command.Command;
 import seedu.duke.command.CommandResult;
 import seedu.duke.command.PromptType;
+import seedu.duke.data.Task;
 import seedu.duke.data.TaskManager;
 import seedu.duke.ui.TextUi;
 
@@ -29,8 +30,8 @@ public class DoneCommand extends Command {
      * @param taskId id of task.
      * @throws TaskManager.TaskNotFoundException If the task is not found in the task list.
      */
-    private void doneTask(int taskId) throws TaskManager.TaskNotFoundException {
-        TaskManager.done(taskId);
+    private Task doneTask(int taskId) throws TaskManager.TaskNotFoundException {
+        return TaskManager.done(taskId);
     }
 
     /**
@@ -42,8 +43,8 @@ public class DoneCommand extends Command {
     public CommandResult execute() {
         String message;
         try {
-            doneTask(taskId);
-            message = MESSAGE_DONE_TASK_SUCCESS;
+            Task doneTask = doneTask(taskId);
+            message = String.format(MESSAGE_DONE_TASK_SUCCESS, doneTask.toString());
             return new CommandResult(message);
         } catch (TaskManager.TaskNotFoundException e) {
             return new CommandResult(MESSAGE_TASK_NOT_FOUND);

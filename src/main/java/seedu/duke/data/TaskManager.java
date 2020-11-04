@@ -87,13 +87,14 @@ public class TaskManager {
         tasksList.remove(taskId);
     }
 
-    public static void done(int taskId) throws TaskNotFoundException {
+    public static Task done(int taskId) throws TaskNotFoundException {
         Task task;
         if (taskId < 0 || taskId > tasksList.size() - 1) {
             throw new TaskNotFoundException();
         }
         task = getTask(taskId);
         task.setStatus(true);
+        return task;
     }
 
     /**
