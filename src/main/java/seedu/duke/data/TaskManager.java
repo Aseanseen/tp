@@ -34,6 +34,8 @@ public class TaskManager {
      *  The index of the task in the Task List.
      * @param editedTaskDesc
      *  The edited task description string
+     * @return
+     *  The edited task object
      * @throws TaskNotFoundException
      *  If there is no task found with that ID
      */
@@ -55,6 +57,8 @@ public class TaskManager {
      *  The edited task description string
      * @param deadline
      *  The edited deadline
+     * @return
+     *  The edited task object
      * @throws TaskNotFoundException
      *  If there is no task found with that ID
      */
@@ -81,6 +85,8 @@ public class TaskManager {
      * Removes a task from the Task List using the task index (id).
      * @param taskId
      *  The index of the task to be deleted
+     * @return
+     *  The removed task
      * @throws TaskNotFoundException
      *  When the task to be removed is not in the task list
      */

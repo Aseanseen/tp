@@ -84,7 +84,7 @@ public class EditTaskCommand extends EditCommand {
         try {
             String oldTask = TaskManager.getTask(taskId).toString();
             String editedTask = edit().toString();
-            return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, oldTask , editedTask));
+            return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, oldTask, editedTask));
         } catch (TaskManager.TaskNotFoundException e) {
             return new CommandResult(ExceptionMessage.MESSAGE_NO_EDIT_TASK);
         }

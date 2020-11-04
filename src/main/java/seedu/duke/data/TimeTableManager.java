@@ -138,6 +138,8 @@ public class TimeTableManager {
      *  The day of week.
      * @param lessonIndex
      *  The lesson index.
+     * @return
+     *  The deleted lesson.
      * @throws IndexOutOfBoundsException
      *  When the lesson index is out of bounds.
      */

@@ -23,6 +23,8 @@ public class TimeTableDeleteCommand extends TimeTableCommand {
     /**
      * Method runs during execution. Deletes the lesson from the timetable.
      *
+     * @return
+     *  The deleted lesson.
      * @throws IndexOutOfBoundsException
      *  When the index given by the user is out of bounds.
      */
